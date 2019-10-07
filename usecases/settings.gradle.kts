@@ -5,3 +5,5 @@ include("guava-listenablefuture-conflict")
 include("guava-jdk-variants")
 
 include("jackson-align-versions")
+
+include("sjf4j-detect-conflicting-implementations")

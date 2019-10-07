@@ -20,14 +20,3 @@ configurations.all {
 //        })
     }
 }
-
-tasks.create("checkClasspath") {
-    doLast {
-        val compile = configurations.compileClasspath.get().map { it.name }
-        val rt = configurations.runtimeClasspath.get().map { it.name }
-        println("=== COMPILE ===")
-        compile.forEach { println(it) }
-        println("=== RUNTIME ===")
-        rt.forEach { println(it) }
-    }
-}
