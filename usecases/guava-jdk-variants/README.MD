@@ -6,8 +6,15 @@ Each Guava version is published twice: `28.1-android` (JDK6) and `28.1-jre` (JDK
 
 ## How is it solved?
 
-In Gradle Module Metadata, _variants_ are published explicitly.
-In java, there typically is a _runtime classpath variant_ (usually called `runtimeElements` in Gradle Module Metadata) and a _compile classpath variant_ (usually called `apiElements`).
-Each variant has its dependencies explicitly defined in the metadata.
-This allows for dependencies that are only defined in the `apiElements` variant.
-(In contrast, the POM scope "compile" defines dependencies for both _compile classpath_ and _runtime classpath_ and there is no scope for **only** _compile classpath_.)
+In Gradle Module Metadata, arbitrary many _variants_ can be published explicitly.
+Each variant can have individual dependencies and **artifacts**.
+_Variant attributes_ are used to distinguish variants and can also be used to express that variants are mutually exclusive.
+Gradle supports a set of [default attributes](https://docs.gradle.org/release-nightly/userguide/variant_attributes.html), including `org.gradle.jvm.version`.
+Utilising that, Guava can now publish the following variants:
+
+- `apiElements`: compile classpath dependencies, `org.gradle.jvm.version = 8`, artifact = `guava-28.1-jre.jar`
+- `runtimeElements`: runtime classpath dependencies, `org.gradle.jvm.version = 8`, artifact = `guava-28.1-jre.jar`
+- `jdk6ApiElements`: compile classpath dependencies, `org.gradle.jvm.version = 6`, artifact = `guava-28.1-android.jar`
+- `jdk6RuntimeElements`: runtime classpath dependencies, `org.gradle.jvm.version = 6`, artifact = `guava-28.1-android.jar`
+
+A build depending on Guava, will now automatically choose one, and only one, compatibly variant based on the `java.targetCompatibility` setting.
