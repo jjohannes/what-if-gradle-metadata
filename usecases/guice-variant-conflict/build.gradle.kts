@@ -19,4 +19,10 @@ dependencies {
     constraints {
         implementation("com.google.guava:guava:28.1-jre") // use Guava version that's in our repo with GMM
     }
+
+    configurations.all {
+        resolutionStrategy.capabilitiesResolution.withCapability("com.google.inject:guice-no-aop") {
+            // select(candidates.first { !it.variantName.contains("noAop") })
+        }
+    }
 }

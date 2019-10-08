@@ -14,9 +14,6 @@ dependencies {
 
 configurations.all {
     resolutionStrategy.capabilitiesResolution.withCapability("com.google.guava:listenablefuture") {
-//        select(candidates.first {
-//            it as ModuleComponentIdentifier
-//            it.module == "guava"
-//        })
+        // select("com.google.guava:guava:28.1-jre")
     }
 }
