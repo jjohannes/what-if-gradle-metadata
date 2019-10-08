@@ -37,6 +37,15 @@ dependencies {
     api(platform("com.google.guava:guava-parent:28.1-jre"))
 }
 
+// === DETECTING CONFLICT WITH com.google.collections ===
+// By stating that Guava provides the 'com.google.collections' capability, Gradle will detect the conflict if both are in the dependnecy graph
+configurations {
+    api {
+        outgoing {
+            capability("com.google.collections:google-collections:${project.version}")
+        }
+    }
+}
 
 // === DETECTING CONFLICT WITH EXTERNAL listenablefuture LIBRARY ===
 // Better solves https://github.com/google/guava/issues/3320 (and related)
