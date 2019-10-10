@@ -1,5 +1,8 @@
 rootProject.name = "what-if-gradle-metadata-libraries"
 
+include("core")
+rootProject.children.last().projectDir = file("androidx-core")
+
 include("guava")
 
 include("guice")
