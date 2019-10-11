@@ -10,6 +10,8 @@ include("guava-vs-google-collections")
 include("guice-select-no_aop-variant")
 include("guice-variant-conflict")
 
+include("hibernate-align-versions")
+
 include("jackson-align-versions")
 
 include("sjf4j-detect-conflicting-implementations")

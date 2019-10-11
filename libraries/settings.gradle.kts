@@ -7,6 +7,8 @@ include("guava")
 
 include("guice")
 
+include("hibernate-core")
+
 include("jackson-core")
 include("jackson-annotations")
 include("jackson-databind")
