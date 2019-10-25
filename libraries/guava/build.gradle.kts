@@ -25,14 +25,13 @@ configurations["compileClasspath"].extendsFrom(compileOnlyApi)
 configurations["apiElements"].extendsFrom(compileOnlyApi)
 
 dependencies {
-    // why is this not scope 'runtime' in the pom already? It states in the module description: 'Most users will never need to use this artifact'.
-    implementation("com.google.guava:failureaccess:1.0.1")
+    api("com.google.guava:failureaccess:1.0.1")
+    // Annotations that may be required at compile and runtime
+    api("org.checkerframework:checker-qual")
     // the following annotations are no longer required at runtime
     compileOnlyApi("com.google.code.findbugs:jsr305")
-    compileOnlyApi("org.checkerframework:checker-qual")
     compileOnlyApi("com.google.errorprone:error_prone_annotations")
     compileOnlyApi("com.google.j2objc:j2objc-annotations")
-    compileOnlyApi("org.codehaus.mojo:animal-sniffer-annotations:1.17")
 
     api(platform("com.google.guava:guava-parent:28.1-jre"))
 }
@@ -117,6 +116,7 @@ val jdk6ApiElements: Configuration by configurations.creating {
     }
     outgoing.artifact(jarJdk6)
     extendsFrom(configurations["api"])
+    extendsFrom(compileOnlyApi)
 }
 val jdk6RuntimeElements: Configuration by configurations.creating {
     isCanBeConsumed = true; isCanBeResolved = false
