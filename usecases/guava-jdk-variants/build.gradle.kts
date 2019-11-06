@@ -3,7 +3,8 @@ plugins {
 }
 
 repositories {
-    maven { setUrl(rootProject.file("repository")) }
+    // maven { setUrl(rootProject.file("repository")) } <-- use this instead of 'mavenLocal()' if you do not use the real Guava fork
+    mavenLocal()
     mavenCentral()
 }
 

@@ -1,3 +1,17 @@
+**NOTE:**
+
+This use cases also works with a real fork of Guava that publishes Gradle Module Metadata.
+Execute the following in the parent directory of this repository:
+
+```
+git clone git@github.com:jjohannes/guava.git
+cd guava
+git checkout gradle-module-metadata
+util/set_version.sh 28.1
+mvn -DskipTests=true install
+mvn -DskipTests=true install -f android
+```
+
 ## What's the use case?
 
 In the past, the collection part of Guava was published under different coordinates `com.google.collections:google-collections`.

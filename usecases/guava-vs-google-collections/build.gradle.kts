@@ -3,7 +3,8 @@ plugins {
 }
 
 repositories {
-    maven { setUrl(rootProject.file("repository")) }
+    // maven { setUrl(rootProject.file("repository")) } <-- use this instead of 'mavenLocal()' if you do not use the real Guava fork
+    mavenLocal()
     mavenCentral()
 }
 
@@ -14,6 +15,6 @@ dependencies {
 
 configurations.all {
     resolutionStrategy.capabilitiesResolution.withCapability("com.google.collections:google-collections") {
-        // select("com.google.guava:guava:28.1-jre")
+        // selectHighestVersion()
     }
 }
