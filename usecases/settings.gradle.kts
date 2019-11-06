@@ -17,3 +17,5 @@ include("jackson-align-versions")
 include("slf4j-detect-conflicting-implementations")
 
 include("junit5-align-versions")
+
+include("lwgj-native-runtime")
