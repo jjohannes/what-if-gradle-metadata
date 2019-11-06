@@ -14,6 +14,6 @@ include("hibernate-align-versions")
 
 include("jackson-align-versions")
 
-include("sjf4j-detect-conflicting-implementations")
+include("slf4j-detect-conflicting-implementations")
 
 include("junit5-align-versions")
