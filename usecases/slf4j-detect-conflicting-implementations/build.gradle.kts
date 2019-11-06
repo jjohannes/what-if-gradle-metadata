@@ -3,7 +3,7 @@ plugins {
 }
 
 repositories {
-    maven { setUrl(rootProject.file("repository")) } // <- repository with Gradle Module Metadata added
+    maven { setUrl(rootProject.file("../repository")) } // <- repository with Gradle Module Metadata added
     mavenCentral()
 }
 
