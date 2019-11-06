@@ -3,7 +3,7 @@ plugins {
 }
 
 repositories {
-    maven { setUrl("../../repository") }
+    maven { setUrl(rootProject.file("repository")) }
     mavenCentral()
 }
 
