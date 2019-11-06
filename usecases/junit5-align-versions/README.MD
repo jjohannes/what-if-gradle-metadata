@@ -1,12 +1,6 @@
 **NOTE:**
-To try out this use cases, a real fork of JUnit 5 is required that creates a complete JUnit publication in a local SNAPSHOT repository.
-Execute in the following in the parent directory of this repository:
-```
-git clone git@github.com:jjohannes/junit5.git
-cd junit5
-git checkout local-snapshot-repo
-./gradlew publish
-```
+
+**Junit 5.6.0-M1 publishes Gradle Module Metadata** (this is no longer a what-if!)
 
 ## What's the use case?
 
